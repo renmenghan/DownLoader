@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TTDownLoader_Example' do
+  pod 'TTDownLoader', :path => '../'
+
+  target 'TTDownLoader_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
