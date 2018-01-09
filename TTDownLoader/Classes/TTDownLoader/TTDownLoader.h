@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger,TTDownLoadState){
 typedef void(^DownLoadInfoType)(long long totalSize);
 typedef void(^ProgressBlockType)(float progress);
 typedef void(^SuccessBlockType)(NSString *filePath);
-typedef void(^FaileBlockType)();
+typedef void(^FaileBlockType)(void);
 typedef void(^StateChangeType)(TTDownLoadState state);
 
 @interface TTDownLoader : NSObject
