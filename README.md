@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # TTDownLoader
 
 [![CI Status](http://img.shields.io/travis/renmenghan/TTDownLoader.svg?style=flat)](https://travis-ci.org/renmenghan/TTDownLoader)
@@ -28,7 +28,4 @@ renmenghan, mrren888@163.com
 ## License
 
 TTDownLoader is available under the MIT license. See the LICENSE file for more info.
-=======
-# DownLoader
-多任务下载
->>>>>>> c5c06c6b3eb1fec39cc8cda8d23bab6ead193de8
+
