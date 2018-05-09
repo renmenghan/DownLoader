@@ -139,7 +139,7 @@
 - (void)downLoadWithURL:(NSURL *)url offset:(long long)offset
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
-    [request setValue:[NSString stringWithFormat:@"bytes=%lld",offset] forHTTPHeaderField:@"Range"];
+    [request setValue:[NSString stringWithFormat:@"bytes=%lld-",offset] forHTTPHeaderField:@"Range"];
     
     self.dataTask =  [self.session dataTaskWithRequest:request];
     
