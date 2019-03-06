@@ -8,8 +8,14 @@
 
 #import "TTDownLoaderManager.h"
 #import "NSString+TT.h"
+
+@implementation TTDownLoaderConfig
+
+@end
+
 @interface TTDownLoaderManager()<NSCopying,NSMutableCopying>
 @property (nonatomic,strong) NSMutableDictionary *downLoadInfo;
+@property (nonatomic,strong) TTDownLoaderConfig *currentConfig;
 @end
 @implementation TTDownLoaderManager
 
@@ -22,6 +28,12 @@
 }
 
 static TTDownLoaderManager *_shareInstance;
+
++ (void)startWithConfigure:(TTDownLoaderConfig *)configure
+{
+    NSAssert(1, @"下载需要一些额外配置需在config额外配置");
+    [TTDownLoaderManager shareInstance].currentConfig = configure;
+}
 
 + (instancetype)shareInstance
 {
@@ -60,6 +72,9 @@ static TTDownLoaderManager *_shareInstance;
     TTDownLoader *downLoader = self.downLoadInfo[urlMD5];
     if (downLoader == nil) {
         downLoader = [[TTDownLoader alloc] init];
+        if (self.currentConfig.netWorkGlobalParams) {
+            downLoader.netWorkGlobalParams = self.currentConfig.netWorkGlobalParams;
+        }
         self.downLoadInfo[urlMD5] = downLoader;
     }
     

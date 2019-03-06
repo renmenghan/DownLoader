@@ -52,6 +52,11 @@
 //    } failed:^{
 //        NSLog(@"下载失败");
 //    }];
+    TTDownLoaderConfig *config = [[TTDownLoaderConfig alloc] init];
+    config.netWorkGlobalParams = @{@"refer":@"1",@"test":@"2"};
+    
+    [TTDownLoaderManager startWithConfigure:config];
+    
     [[TTDownLoaderManager shareInstance] downLoader:url downLoadInfo:^(long long totalSize) {
         NSLog(@"下载信息---%lld",totalSize);
     } progress:^(float progress) {

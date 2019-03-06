@@ -49,4 +49,5 @@ typedef void(^StateChangeType)(TTDownLoadState state);
 @property (nonatomic,copy) SuccessBlockType successBlock;
 @property (nonatomic,copy) FaileBlockType faildBlock;
 
+@property (nonatomic,strong) NSDictionary *netWorkGlobalParams;
 @end

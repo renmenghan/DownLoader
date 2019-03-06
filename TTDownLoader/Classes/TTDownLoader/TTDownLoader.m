@@ -141,6 +141,12 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
     [request setValue:[NSString stringWithFormat:@"bytes=%lld",offset] forHTTPHeaderField:@"Range"];
     
+    if (self.netWorkGlobalParams) {
+        [self.netWorkGlobalParams enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            [request setValue:obj?:@"" forHTTPHeaderField:key?:@""];
+        }];
+    }
+    
     self.dataTask =  [self.session dataTaskWithRequest:request];
     
    [self resumeCurrentTask];

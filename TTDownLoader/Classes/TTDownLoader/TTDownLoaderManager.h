@@ -9,10 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "TTDownLoader.h"
 
+@interface TTDownLoaderConfig : NSObject
+
+@property (nonatomic,strong) NSDictionary *netWorkGlobalParams;
+
+@end
+
 @interface TTDownLoaderManager : NSObject
 
 
 +(instancetype)shareInstance;
+
+@property (nonatomic,strong,readonly) TTDownLoaderConfig *currentConfig;
+
++ (void)startWithConfigure:(TTDownLoaderConfig *)configure;
+
 
 - (void)downLoader:(NSURL *)url downLoadInfo:(DownLoadInfoType)downLoadInfo progress:(ProgressBlockType)progressBlock success:(SuccessBlockType)successBlock failed:(FaileBlockType)failedBlock;
 
